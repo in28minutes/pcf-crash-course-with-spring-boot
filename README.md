@@ -1,10 +1,18 @@
 # PCF Crash Course for Java, Spring and Spring Boot Developers
 
-## Deploy REST API, Web Applications, Full Stack Applications and Microservices to Pivotal Cloud Foundry (PCF) 
+## Deploy Spring Boot REST API, Full Stack Applications and Microservices to Pivotal Cloud Foundry (PCF) 
 
-Spring Boot is the No 1 Java Framework to develop REST API and Microservices. Pivotal Cloud Foundry (PCF) provides a great cloud native platform to deploy Spring Boot Applications.
+Learn PCF Fundamentals? Yes.   Deploy REST API to PCF? Yes.     Deploy Full Stack to PCF? Yes. Of Course. Hands-on? Of course.
 
-How about learning Pivotal Cloud Foundry (PCF) by deploying Spring Boot Docker Containers to PCF?
+Do you have ZERO experience with Pivotal Cloud Foundry (PCF)? No Problem.
+
+Do you want to learn to Deploy Java Spring Boot Applications and Microservices to Pivotal Cloud Foundry (PCF) with an easy to learn, step by step approach?
+
+Are you ready to learn about the cloud with Pivotal Cloud Foundry (PCF) and take the next step in your programming career?
+
+Do you want to join 250,000+ learners having Amazing Learning Experiences with in28Minutes?
+
+Look No Further!
 
 ## Getting Started
 - [Video - Docker in 5 Steps](https://youtu.be/Rt5G5Gj7RP0)
@@ -38,107 +46,134 @@ How about learning Pivotal Cloud Foundry (PCF) by deploying Spring Boot Docker C
   - https://code.visualstudio.com/docs/supporting/errors
   - https://code.visualstudio.com/docs/supporting/FAQ
 - Eclipse and Embedded Maven
-  - Troubleshooting Guide : https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#tip--troubleshooting-embedded-maven-in-eclipse
-  - PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
-  - GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
+  - Troubleshooting Guide - https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ#tip--troubleshooting-embedded-maven-in-eclipse
+  - PDF - https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
+  - GIT Repository For Installation - https://github.com/in28minutes/getting-started-in-5-steps
 
 ## Course Overview
+
+******* Course Overview *******
+
+How about learning PCF (Pivotal Cloud Foundry)  deploying Spring Applications to Cloud using Pivotal Cloud Foundry?
+
+Pivotal Cloud Foundry (PCF) provides a great cloud native platform to deploy Spring Boot Applications.
+
+Spring Boot is the No 1 Java Framework to develop REST API and Microservices. 
 
 In this course, we deploy a variety of Spring Boot Applications to the Cloud:
 - REST APIs - Hello World and Todo - Jar
 - Todo Web Application War
 - Full Stack Application with React and Spring Boot
-- Single Container with REST API
-- Multi Container with Todo REST API talking to MySQL
+- CCS and CES Microservices
+- Route Services
 
 This course would be a perfect first step as an introduction to PCF and the Cloud.
-
 
 You will be using deploying a variety of projects to Pivotal Cloud Foundry (PCF) . These projects are created with  React (Frontend Framework), Spring Boot (REST API Framework), Spring (Dependency Management), Spring Security (Authentication and Authorization - Basic and JWT), BootStrap (Styling Pages), Maven (dependencies management), Node (npm), Visual Studio Code (TypeScript IDE), Eclipse (Java IDE) and Tomcat Embedded Web Server. We will help you set up each one of these.
 
 ## What you'll learn
-- You will Learn the Fundamentals of Amazon Web Services from Zero, no previous experience required
-- You will learn to deploy Spring Boot REST API to AWS with AWS Elastic Beanstalk
-- You will learn to deploy Java, Spring Boot Full Stack Applications to AWS with AWS Elastic Beanstalk and S3
-- You will be using a number of AWS Services - EC2, S3, AWS CodePipeLine, AWS CodeBuild, SQS, IAM, CloudWatch. 
-- You will learn to deploy containerized Java Spring Boot applications to AWS
-- You will learn to create a continuous delivery pipeline with AWS Code Pipeline
-- You will learn how to Auto Scale applications based on load as well as deploy multiple instances behind a load balancer using Elastic Beanstalk.
+- You will Learn the Fundamentals of Pivotal Cloud Foundry ( PCF ) from Zero, no previous experience required
+- You will learn to deploy Spring Boot REST API to Pivotal Cloud Foundry ( PCF )
+- You will learn to deploy Java, Spring Boot Full Stack Applications to Pivotal Cloud Foundry ( PCF )
+- You will be using a number of PCF Services - Databases, Spring Cloud Services including Service Registry, Config Server and Hystrix . 
+- You will learn how to Auto Scale applications based on load as well as deploy multiple instances behind a load balancer using Pivotal Cloud Foundry.
 - You will Join 250,000 Learners having AMAZING LEARNING Experiences with in28Minutes
 
 ## Requirements
 - You have an attitude to learn while having fun :)
 - You have some programming experience with Java, Spring and Spring Boot
-- You have a valid debit or credit card to create a AWS Account
-- You DO NOT need to have any experience with AWS (Amazon Web Services)
+- You DO NOT need to have any experience with Pivotal Cloud Foundry
+- We will help you install Eclipse, Visual Studio Code, Git client, Docker Desktop and Node JS (for npm)
 
+## Who is this course for
+- You are a Java Spring Boot developer getting started with the Cloud
+- You want to get your Java applications deployed to PCF (Pivotal Cloud Foundry) Quickly
+- You are a Java Developer and You are curious about PCF and the Cloud
+- You want to learn to deploy a Java Spring Boot full stack application to PCF (Pivotal Cloud Foundry) 
+- You want to learn to deploy Spring Boot Microservices with Service Registry, Config Server, Distributed Tracing and Load Balancing to PCF (Pivotal Cloud Foundry) 
 
 ## Step By Step Details
 
+### Introduction to the Course
+- 00 Step 01 - Deploy Spring Boot Applications to Pivotal Cloud Foundry - Course Overview
+- 00 Step 02 - Deploy Spring Boot Applications to Pivotal Cloud Foundry - Getting Started
+
+### Getting Started with PCF - Pivotal Cloud Foundry
+- 01 Step 01 - Getting Started with PCF - Pivotal Cloud Foundry
+- 01 Step 02 - Creating Pivotal Web Services Accounts and Understanding Org and Space
+- 01 Step 03 - Installing CF CLI - Cloud Foundry Command Line Interface
+- 01 Step 04 - Importing Spring Boot Projects into our IDE
 
 ### Deploy Java Spring Boot Hello World Rest API to PCF
-- 02 Step 01: Setting up 01 Spring Boot Hello World Rest API in Local 
-- 02 Step 02: Deploy 01 Hello World Rest API to Pivotal Cloud Foundry - PCF
-- 02 Step 03: Exploring Cloud Foundry CLI - apps, routes, start, stop and restart
-- 02 Step 04: Creating Application Manifest manifest yaml for Spring Boot App
-- 02 Step 05: Understanding Pivotal Cloud Foundry - PCF - Concepts - Droplet and Build Packs
-- 02 Step 06: Configure PCF Java Build Pack for Spring Boot Application
+- 02 Step 01 - Setting up 01 Spring Boot Hello World Rest API in Local 
+- 02 Step 02 - Deploy 01 Hello World Rest API to Pivotal Cloud Foundry - PCF
+- 02 Step 03 - Exploring Cloud Foundry CLI - apps, routes, start, stop and restart
+- 02 Step 04 - Creating Application Manifest manifest yaml for Spring Boot App
+- 02 Step 05 - Understanding Pivotal Cloud Foundry - PCF - Concepts - Droplet and Build Packs
+- 02 Step 06 - Configure PCF Java Build Pack for Spring Boot Application
 
 ### Deploy Java Spring Boot Todo Web Application WAR to Pivotal Cloud Foundry
-- 03 Step 01: Setting up 01 Spring Boot Todo Web Application in Local 
-- 03 Step 02: Deploy Spring Boot Todo Web Application to Pivotal Cloud Foundry - PCF
+- 03 Step 01 - Setting up 01 Spring Boot Todo Web Application in Local 
+- 03 Step 02 - Deploy Spring Boot Todo Web Application to Pivotal Cloud Foundry - PCF
 
 ### Deploy Java Spring Boot Todo Web Application with MySQL to Pivotal Cloud Foundry
-- 04 Step 01: Code Review of 03 Todo Web Application MySQL
-- 04 Step 02: Running MySQL as Docker Container on Local
-- 04 Step 03: Connect Spring Boot Todo Web App to MySQL on Local
-- 04 Step 04: Exploring PWS UI and Create Service for Todo Database on PCF
-- 04 Step 05: Connect Spring Boot Web App with MySQL Database on PCF
-- 04 Step 06: Understanding PCF Spring Auto Configuration
+- 04 Step 01 - Code Review of 03 Todo Web Application MySQL
+- 04 Step 02 - Running MySQL as Docker Container on Local
+- 04 Step 03 - Connect Spring Boot Todo Web App to MySQL on Local
+- 04 Step 04 - Exploring PWS UI and Create Service for Todo Database on PCF
+- 04 Step 05 - Connect Spring Boot Web App with MySQL Database on PCF
+- 04 Step 06 - Understanding PCF Spring Auto Configuration
 
 ### Deploy Java Spring Boot React Full Stack Application to Pivotal Cloud Foundry
-- 05 Step 01: Exploring 04 Java Full Stack Spring Boot React App
-- 05 Step 02: Running React Frontend in Local
-- 05 Step 03: Deploying Java REST API Backend to Pivotal Cloud Foundry
-- 05 Step 04: Building React Frontend Code for Pivotal Cloud Foundry
+- 05 Step 01 - Exploring 04 Java Full Stack Spring Boot React App
+- 05 Step 02 - Running React Frontend in Local
+- 05 Step 03 - Deploying Java REST API Backend to Pivotal Cloud Foundry
+- 05 Step 04 - Building React Frontend Code for Pivotal Cloud Foundry
+- 05 Step 05 - Exploring Pivotal Cloud Foundry UI
 
 ### Getting started with CCS and CES Microservices on PCF
-- 06 Step 04: Overview of CCS and CES Spring Boot Microservices
-- 06 Step 05: Push CCS and CES Microservices to Pivotal Cloud Foundry
-- 06 Step 06: Run CCS and CES Microservices on PCF - Environment Variables and Instance Config
-- 06 Step 07: Scaling CCS and CES Microservices on Pivotal Cloud Foundry
-- 06 Step 08: Exploring Distributed Tracing on Pivotal Cloud Foundry
+- 06 Step 04 - Overview of CCS and CES Spring Boot Microservices
+- 06 Step 05 - Push CCS and CES Microservices to Pivotal Cloud Foundry
+- 06 Step 06 - Run CCS and CES Microservices on PCF - Environment Variables and Instance Config
+- 06 Step 07 - Scaling CCS and CES Microservices on Pivotal Cloud Foundry
+- 06 Step 08 - Exploring Distributed Tracing on Pivotal Cloud Foundry
 
 ### Using Service Registry for Spring Boot Microservices on Pivotal Cloud Foundry
-- 07 Step 01: Understanding the need for Service Registry and Set up Eureka Server
-- 07 Step 02: Register CES Microservice with Eureka Service on Local
-- 07 Step 03: Register CCS Microservice with Eureka Service and connect CES Microservice
-- 07 Step 04: Create Service Registry on Pivotal Cloud Foundry and deploy CCS and CES
+- 07 Step 01 - Understanding the need for Service Registry and Set up Eureka Server
+- 07 Step 02 - Register CES Microservice with Eureka Service on Local
+- 07 Step 03 - Register CCS Microservice with Eureka Service and connect CES Microservice
+- 07 Step 04 - Create Service Registry on Pivotal Cloud Foundry and deploy CCS and CES
 
 ### Exploring Auto Scaling on Pivotal Cloud Foundry
-- 08 Step 01: Auto Scaling Microservices on Pivotal Cloud Foundry 
-- 08 Step 02: Disable Auto Scaling on Pivotal Cloud Foundry 
+- 08 Step 01 - Auto Scaling Microservices on Pivotal Cloud Foundry 
+- 08 Step 02 - Disable Auto Scaling on Pivotal Cloud Foundry 
 
 ### Using Route Services with PCF and Spring Boot
-- 09 Step 02: Binding Route Services with Spring Boot Microservices
-- 09 Step 03: Disable Route Services on PCF
+- 09 Step 01 - Understanding Route Services - Code Review and Deploy
+- 09 Step 02 - Binding Route Services with Spring Boot Microservices
+- 09 Step 03 - Disable Route Services on PCF
+- 09 Step 04 - Quick Review of Pivotal Cloud Foundry
 
 ### Setting up Centralized Configuration
-- 10 Step 01: Understanding Centralized Configuration for Microservices
-- 10 Step 02: Configure CCS Microservice to talk to Spring Cloud Config Server
-- 10 Step 03: Create a Github Repo for Spring Cloud Config Server
-- 10 Step 04: Configure Refresh Scope for Spring Boot Application
-- 10 Step 05: Create Cloud Config Service on Pivotal Cloud Foundry
-- 10 Step 06: Test Cloud Config Service on Pivotal Cloud Foundry
+- 10 Step 01 - Understanding Centralized Configuration for Microservices
+- 10 Step 02 - Configure CCS Microservice to talk to Spring Cloud Config Server
+- 10 Step 03 - Create a Github Repo for Spring Cloud Config Server
+- 10 Step 04 - Configure Refresh Scope for Spring Boot Application
+- 10 Step 05 - Create Cloud Config Service on Pivotal Cloud Foundry
+- 10 Step 06 - Test Cloud Config Service on Pivotal Cloud Foundry
 
 ### Setting up Circuit Breaker with Hystrix
-- 11 Step 01: Setting up Hystrix Circuit Breaker on Local 
-- 11 Step 02: Create Circuit Breaker Service and Deploy App on Pivotal Cloud Foundry
-- 11 Step 03: Understand Hystrix Open and Close Circuit Features
+- 11 Step 01 - Setting up Hystrix Circuit Breaker on Local 
+- 11 Step 02 - Create Circuit Breaker Service and Deploy App on Pivotal Cloud Foundry
+- 11 Step 03 - Understand Hystrix Open and Close Circuit Features
 
 ### Exploring More Features on PCF
-- 12 Step 01: Understand PCF Resilience and configure Health Checks for Microservices
-- 12 Step 02: Setting up Direct Communication between Microservice Containers
+- 12 Step 01 - Understand PCF Resilience and configure Health Checks for Microservices
+- 12 Step 02 - Setting up Direct Communication between Microservice Containers
+- 12 Step 03 - Deploying Containers to PCF
+- 12 Step 04 - Blue Green Deployment on Pivotal Cloud Foundry
+- 12 Step 05 - Thank You
+
 
 ```sh
 for file in *; do mv "${file}" "${file//-/ }"; done
@@ -257,9 +292,9 @@ digraph architecture {
 rankdir = TB;
 node[shape=component]
 Git[shape=cylinder]
-{rank=same; CurrencyCalculationService, CurrencyExchangeService};
+{rank=same; CurrencyConversionService, CurrencyExchangeService};
 CurrencyExchangeService -> SpringCloudConfigServer;
-CurrencyCalculationService -> SpringCloudConfigServer;
+CurrencyConversionService -> SpringCloudConfigServer;
 SpringCloudConfigServer -> Git
 
 }
@@ -267,9 +302,9 @@ SpringCloudConfigServer -> Git
 digraph architecture {
 rankdir = TB;
 node[shape=component]
-{rank=same; CurrencyCalculationService, CurrencyExchangeService};
+{rank=same; CurrencyConversionService, CurrencyExchangeService};
 CurrencyExchangeService -> EurekaNamingServer;
-CurrencyCalculationService -> EurekaNamingServer;
+CurrencyConversionService -> EurekaNamingServer;
 }
 
 digraph architecture {
@@ -281,7 +316,7 @@ node[shape=component]
 LoadBalancer -> CurrencyExchangeService1
 LoadBalancer -> CurrencyExchangeService2
 LoadBalancer -> CurrencyExchangeService3
-CurrencyCalculationService -> LoadBalancer
+CurrencyConversionService -> LoadBalancer
 
 }
 
@@ -338,15 +373,7 @@ node[shape=record]
 ## Todo
 
 - Course Creation
-  - Introduction
-  - Getting Started with the Course
-  - Overview of CF, PCF and PWS
-  - Creating PWS Account and Creating Space and Org - currency-services and development - PCF Billing - Free Tier
 - Post Course Creation
-  - Installing CF CLI
-  - Importing Projects into Eclipse
-  - Exploring Web UI of PWS - Revisions and Tasks, if possible
-  - Spring Boot Actuator adds special features to the UI
   - Commit Code
   - Explanation for Route Service in 09 - 06:25    URI uri = headers.remove(X_CF_FORWARDED_URL_HEADER).stream().findFirst().map(URI::create) .orElseThrow(() -> new RuntimeException("Header is missing " + X_CF_FORWARDED_URL_HEADER)); 
   - Update Manifest Files again!
