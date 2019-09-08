@@ -1,0 +1,19 @@
+applications:
+- name: spring-boot-route-service
+  disk_quota: 1G
+  instances: 1
+#   https://github.com/cloudfoundry/java-buildpack/issues/663
+  memory: 512M
+  env:
+    JAVA_OPTS: '-XX:ReservedCodeCacheSize=32M -XX:MaxDirectMemorySize=32M'
+    JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 30}, jre: {version: 11.+}]'
+  path: target/spring-boot-route-service.jar 
+  org: in28minutes-test
+  space: development
+  timeout: 120
+  routes:
+  - route: spring-boot-route-service.cfapps.io
+# random-route: true  
+  stack: cflinuxfs3
+  buildpacks:
+  - https://github.com/cloudfoundry/java-buildpack.git

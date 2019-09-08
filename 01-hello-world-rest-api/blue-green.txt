@@ -1,0 +1,12 @@
+----------------
+Routes and Apps
+----------------
+
+hello-world-rest-api-ranga-101 -> hello-world-rest-api -> blue
+
+hello-world-rest-api-ranga-101-temp -> hello-world-rest-api-green
+
+hello-world-rest-api-ranga-101 -> hello-world-rest-api 
+hello-world-rest-api-ranga-101 -> hello-world-rest-api-green
+
+

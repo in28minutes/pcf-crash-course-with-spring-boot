@@ -15,8 +15,6 @@ How about learning Pivotal Cloud Foundry (PCF) by deploying Spring Boot Docker C
 - [Article - Getting started with React and Spring Boot - Full Stack](https://www.springboottutorial.com/spring-boot-react-full-stack-crud-maven-application)
 - [Article - Using Spring Security and JWT with React and Spring Boot](https://www.springboottutorial.com/spring-boot-react-full-stack-with-spring-security-basic-and-jwt-authentication)
 
-## Installation Guides
-
 #### Required Tools
 
 - Node v8+ for npm
@@ -78,11 +76,169 @@ You will be using deploying a variety of projects to Pivotal Cloud Foundry (PCF)
 ## Step By Step Details
 
 
+### Deploy Java Spring Boot Hello World Rest API to PCF
+- 02 Step 01: Setting up 01 Spring Boot Hello World Rest API in Local 
+- 02 Step 02: Deploy 01 Hello World Rest API to Pivotal Cloud Foundry - PCF
+- 02 Step 03: Exploring Cloud Foundry CLI - apps, routes, start, stop and restart
+- 02 Step 04: Creating Application Manifest manifest yaml for Spring Boot App
+- 02 Step 05: Understanding Pivotal Cloud Foundry - PCF - Concepts - Droplet and Build Packs
+- 02 Step 06: Configure PCF Java Build Pack for Spring Boot Application
+
+### Deploy Java Spring Boot Todo Web Application WAR to Pivotal Cloud Foundry
+- 03 Step 01: Setting up 01 Spring Boot Todo Web Application in Local 
+- 03 Step 02: Deploy Spring Boot Todo Web Application to Pivotal Cloud Foundry - PCF
+
+### Deploy Java Spring Boot Todo Web Application with MySQL to Pivotal Cloud Foundry
+- 04 Step 01: Code Review of 03 Todo Web Application MySQL
+- 04 Step 02: Running MySQL as Docker Container on Local
+- 04 Step 03: Connect Spring Boot Todo Web App to MySQL on Local
+- 04 Step 04: Exploring PWS UI and Create Service for Todo Database on PCF
+- 04 Step 05: Connect Spring Boot Web App with MySQL Database on PCF
+- 04 Step 06: Understanding PCF Spring Auto Configuration
+
+### Deploy Java Spring Boot React Full Stack Application to Pivotal Cloud Foundry
+- 05 Step 01: Exploring 04 Java Full Stack Spring Boot React App
+- 05 Step 02: Running React Frontend in Local
+- 05 Step 03: Deploying Java REST API Backend to Pivotal Cloud Foundry
+- 05 Step 04: Building React Frontend Code for Pivotal Cloud Foundry
+
+### Getting started with CCS and CES Microservices on PCF
+- 06 Step 04: Overview of CCS and CES Spring Boot Microservices
+- 06 Step 05: Push CCS and CES Microservices to Pivotal Cloud Foundry
+- 06 Step 06: Run CCS and CES Microservices on PCF - Environment Variables and Instance Config
+- 06 Step 07: Scaling CCS and CES Microservices on Pivotal Cloud Foundry
+- 06 Step 08: Exploring Distributed Tracing on Pivotal Cloud Foundry
+
+### Using Service Registry for Spring Boot Microservices on Pivotal Cloud Foundry
+- 07 Step 01: Understanding the need for Service Registry and Set up Eureka Server
+- 07 Step 02: Register CES Microservice with Eureka Service on Local
+- 07 Step 03: Register CCS Microservice with Eureka Service and connect CES Microservice
+- 07 Step 04: Create Service Registry on Pivotal Cloud Foundry and deploy CCS and CES
+
+### Exploring Auto Scaling on Pivotal Cloud Foundry
+- 08 Step 01: Auto Scaling Microservices on Pivotal Cloud Foundry 
+- 08 Step 02: Disable Auto Scaling on Pivotal Cloud Foundry 
+
+### Using Route Services with PCF and Spring Boot
+- 09 Step 02: Binding Route Services with Spring Boot Microservices
+- 09 Step 03: Disable Route Services on PCF
+
+### Setting up Centralized Configuration
+- 10 Step 01: Understanding Centralized Configuration for Microservices
+- 10 Step 02: Configure CCS Microservice to talk to Spring Cloud Config Server
+- 10 Step 03: Create a Github Repo for Spring Cloud Config Server
+- 10 Step 04: Configure Refresh Scope for Spring Boot Application
+- 10 Step 05: Create Cloud Config Service on Pivotal Cloud Foundry
+- 10 Step 06: Test Cloud Config Service on Pivotal Cloud Foundry
+
+### Setting up Circuit Breaker with Hystrix
+- 11 Step 01: Setting up Hystrix Circuit Breaker on Local 
+- 11 Step 02: Create Circuit Breaker Service and Deploy App on Pivotal Cloud Foundry
+- 11 Step 03: Understand Hystrix Open and Close Circuit Features
+
+### Exploring More Features on PCF
+- 12 Step 01: Understand PCF Resilience and configure Health Checks for Microservices
+- 12 Step 02: Setting up Direct Communication between Microservice Containers
 
 ```sh
 for file in *; do mv "${file}" "${file//-/ }"; done
 for file in *; do mv "${file}" "${file//   / - }"; done
 for file in *; do mv "${file}" "${file//01 Step/Step}"; done
+```
+
+## Some of the commmands Executed during the course
+
+```
+cf --version
+cf login
+cf help -a
+cf help login
+cf login -a https://api.run.pivotal.io
+cf target
+cf help target
+cf push hello-world-rest-api
+cf push hello-world-rest-api -r hello-world-rest-api-001.cfapps.io
+cf push hello-world-rest-api --random-route
+cf logout
+cf login -a https://api.run.pivotal.io
+cf push hello-world-rest-api -p target/hello-world-rest-api.jar
+cf apps
+cf routes
+cf map-route hello-world-rest-api-ranga-101 cfapps.io --hostname hello-world-rest-api
+cf map-route hello-world-rest-api cfapps.io --hostname hello-world-rest-api-ranga-101
+cf spaces
+cf orgs
+cf stop hello-world-rest-api
+cf start hello-world-rest-api
+cf restart hello-world-rest-api
+
+cf create-app-manifest hello-world-rest-api
+
+cf v3-droplets hello-world-rest-api
+ls target/hello-world-rest-api.jar
+
+docker run --detach --env MYSQL_ROOT_PASSWORD=dummypassword --env MYSQL_USER=todos-user --env MYSQL_PASSWORD=dummytodos --env MYSQL_DATABASE=todos --name mysql --publish 3306:3306 mysql:5.7
+
+docker container list
+docker stop 9a8dfcfa01d4
+docker rm 9a8dfcfa01d4
+
+cf services
+cf help create-service 
+cf v3-delete todo-web-application-mysql
+
+
+cf scale currency-exchange-service -i 2
+
+cf install-plugin ~/Downloads/autoscaler-for-pcf-cliplugin-macosx64-binary-2.0.199
+
+cf autoscaling-apps
+cf autoscaling-events currency-exchange-service
+cf routes
+cf events currency-conversion-service
+cf events currency-exchange-service
+cf disable-autoscaling currency-exchange-service
+cf set-env currency-conversion-service CURRENCY_EXCHANGE_URI http://currency-exchange-service-ranga-101.cfapps.io
+cf env currency-conversion-service
+cf help -a
+cf unset-env currency-conversion-service CURRENCY_EXCHANGE_URI
+
+cf create-user-provided-service spring-boot-route-service -r https://spring-boot-route-service-ranga-101.cfapps.io
+cf routes
+cf bind-route-service cfapps.io --hostname currency-exchange-service-ranga-101 spring-boot-route-service
+cf bind-route-service cfapps.io --hostname currency-conversion-service-ranga-101 spring-boot-route-service
+cf unbind-route-service cfapps.io --hostname currency-exchange-service-ranga-101 spring-boot-route-service
+cf unbind-route-service cfapps.io --hostname currency-conversion-service-ranga-101 spring-boot-route-service
+cf stop spring-boot-route-service
+
+cd /in28Minutes/git/config-server 
+git init
+git add *
+git status
+git commit -m "first commit"
+git remote add origin https://github.com/in28minutes/config-server.git
+git push -u origin master
+
+
+cf create-service p-config-server trial config-server -c config-server.json
+
+cf update-service config-server -c  '{ "count":1, "git":{  "uri":"https://github.com/in28minutes/dev-config-server-test.git", "label":"master", "searchPaths":"currency-exchange-service" }}'
+
+cf set-env currency-conversion-service hystrix.command.default.circuitBreaker.requestVolumeThreshold 2
+
+
+cf set-health-check currency-conversion-service http --endpoint /manage/health
+cf set-health-check currency-conversion-service http --endpoint /manage/health-error
+cf set-health-check currency-conversion-service http --endpoint /manage/health
+
+cf set-env currency-exchange-service spring.cloud.services.registrationMethod direct
+cf network-policies
+cf remove-network-policy currency-conversion-service --destination-app currency-exchange-service --protocol tcp --port 8080
+cf network-policies
+cf unset-env currency-exchange-service spring.cloud.services.registrationMethod
+
+cf map-route hello-world-rest-api-green cfapps.io --hostname hello-world-rest-api-ranga-101
+cf unmap-route hello-world-rest-api cfapps.io --hostname hello-world-rest-api-ranga-101
 ```
 
   
@@ -97,147 +253,105 @@ for file in *; do mv "${file}" "${file//01 Step/Step}"; done
 - Courtesy http://viz-js.com/
 
 ```
+digraph architecture {
+rankdir = TB;
+node[shape=component]
+Git[shape=cylinder]
+{rank=same; CurrencyCalculationService, CurrencyExchangeService};
+CurrencyExchangeService -> SpringCloudConfigServer;
+CurrencyCalculationService -> SpringCloudConfigServer;
+SpringCloudConfigServer -> Git
+
+}
+
+digraph architecture {
+rankdir = TB;
+node[shape=component]
+{rank=same; CurrencyCalculationService, CurrencyExchangeService};
+CurrencyExchangeService -> EurekaNamingServer;
+CurrencyCalculationService -> EurekaNamingServer;
+}
+
+digraph architecture {
+rankdir = TB;
+node[shape=component]
+
+{rank=same; CurrencyExchangeService1, CurrencyExchangeService2, CurrencyExchangeService3};
+{rank=same; LoadBalancer };
+LoadBalancer -> CurrencyExchangeService1
+LoadBalancer -> CurrencyExchangeService2
+LoadBalancer -> CurrencyExchangeService3
+CurrencyCalculationService -> LoadBalancer
+
+}
+
 graph architecture {
 
 node[style=filled,color="#59C8DE"]
 //node [style=filled,color="#D14D28", fontcolor=white];
-rankdir = TB;
+rankdir = TB
+node[shape=record, width=2.5]
+edge [width=0]
+graph [pad=".75", ranksep="0.05", nodesep="0.25"];
+
+Applications -- CloudFoundry [style=invis]
+CloudFoundry -- CloudProvider [style=invis]
+#OS -- Hardware [style=invis]
+CloudProvider[label=<Cloud Provider <BR /><FONT POINT-SIZE="10"> AWS or Azure or GCP or Others</FONT>>]
+
+}
+
+graph architecture {
+
+node[style=filled,color="#59C8DE"]
+//node [style=filled,color="#D14D28", fontcolor=white];
+rankdir = TB
+node[shape=record, width=2.5]
+edge [width=0]
+graph [pad=".75", ranksep="0.05", nodesep="0.25"];
+
+Applications -- PivotalCloudFoundry [style=invis]
+PivotalCloudFoundry -- CloudProvider [style=invis]
+#OS -- Hardware [style=invis]
+CloudProvider[label=<AWS>]
+
+}
+
+digraph architecture {
+  rankdir=LR;
+
 node[shape=record]
 
-IAM -- Console
-Console -- UserID
-Console -- Password
-IAM -- Application
-Application -- AccessKeyID
-Application -- SecretAccessKey
+  User -> LoadBalancer -> GoRouter -> Cell
 
-IAM[label=<IAM User>]
-AccessKeyID[label=<Access Key Id>]
-UserID[label=<User Id>]
-SecretAccessKey[label=<Secret Access Key>]
-Console[label=<Management Console>]
-Application[label=<APIs>]
+  subgraph Cell {
+      {rank=same; App, Cell};
+  }
+ 
 }
 
-
-graph architecture {
-
-node[style=filled,color="#59C8DE"]
-//node [style=filled,color="#D14D28", fontcolor=white];
-rankdir = TB;
-node[shape=record]
-
-Users -- RootUser
-Users -- IAM
-
-RootUser[label=<Root User>]
-IAM[label=<IAM User>]
-
-}
-
-
-
-graph architecture {
-
-node[style=filled,color="#59C8DE"]
-//node [style=filled,color="#D14D28", fontcolor=white];
-rankdir = TB
-node[shape=record, width=2]
-edge [width=0]
-graph [pad=".75", ranksep="0.05", nodesep="0.25"];
-
-Applications -- Software [style=invis]
-Software -- OS [style=invis]
-OS -- Hardware [style=invis]
-
-}
-
-
-graph architecture {
-
-node[style=filled,color="#59C8DE"]
-//node [style=filled,color="#D14D28", fontcolor=white];
-rankdir = TB
-node[shape=record, width=3]
-
-Containers, LocalImages [height=1]
-
-DockerClient -- Daemon
-Daemon -- Containers 
-Daemon -- LocalImages
-Daemon -- ImageRegistry
-
-DockerClient[label=<Docker Client>]
-ImageRegistry[label=<Image Registry <BR /><FONT POINT-SIZE="10">nginx<BR />mysql<BR />eureka<BR />your-app<BR /><BR /></FONT>>];
-Daemon[label=<Docker Daemon>]
-
-
-}
-
-
-graph architecture {
-
-node[style=filled,color="#59C8DE"]
-//node [style=filled,color="#D14D28", fontcolor=white];
-rankdir = TB
-node[shape=record, width=2]
-Hypervisor,HostOS, Hardware[shape=record, width=6.5, style=filled,color="#D14D28", fontcolor=white]
-edge [width=0]
-graph [pad=".75", ranksep="0.05", nodesep="0.25"];
-
-Application1 -- Software1 [style=invis]
-Application2 -- Software2 [style=invis]
-Application3 -- Software3 [style=invis]
-
-Software1 -- GuestOS1 [style=invis]
-Software2 -- GuestOS2 [style=invis]
-Software3 -- GuestOS3 [style=invis]
-GuestOS1 -- Hypervisor [style=invis]
-GuestOS2 -- Hypervisor [style=invis]
-GuestOS3 -- Hypervisor [style=invis]
-Hypervisor -- HostOS [style=invis]
-HostOS -- Hardware [style=invis]
-
-}
-
-
-graph architecture {
-
-node[style=filled,color="#59C8DE"]
-//node [style=filled,color="#D14D28", fontcolor=white];
-rankdir = TB
-node[shape=record, width=2]
-HostOS, CloudInfrastructure, DockerEngine[shape=record, width=6.5, style=filled,color="#D14D28", fontcolor=white]
-edge [width=0]
-graph [pad=".75", ranksep="0.05", nodesep="0.25"];
-Container1,Container2,Container3[height=2]
-
-Container1 -- DockerEngine [style=invis]
-Container2 -- DockerEngine [style=invis]
-Container3 -- DockerEngine [style=invis]
-DockerEngine -- HostOS [style=invis]
-HostOS -- CloudInfrastructure [style=invis]
-
-}
 ```
 
+
+## Next Steps
+
 ## Todo
+
 - Course Creation
-  - Containers DONE
-  - Auto Scaling DONE
-  - JDK 11 DONE
-  - Concepts : Droplets, Build Pack, Routes, Revisions, Tasks DONE
-  - --nostart TODO 
-  - Log Levels at Runtime  TODO
-  - Routing -- Several Apps One Route, Context Path Routing DONE
-  - Route Service - API Gateway - Authentication DONE
-  - Resilience DONE
-  - Health Checks DONE
-  - Blue Green and Canary Deployments DONE
-  - PDF Documentation
-  - Book on Safari
-  - Course on Safari Online
+  - Introduction
+  - Getting Started with the Course
+  - Overview of CF, PCF and PWS
+  - Creating PWS Account and Creating Space and Org - currency-services and development - PCF Billing - Free Tier
 - Post Course Creation
+  - Installing CF CLI
+  - Importing Projects into Eclipse
+  - Exploring Web UI of PWS - Revisions and Tasks, if possible
+  - Spring Boot Actuator adds special features to the UI
+  - Commit Code
+  - Explanation for Route Service in 09 - 06:25    URI uri = headers.remove(X_CF_FORWARDED_URL_HEADER).stream().findFirst().map(URI::create) .orElseThrow(() -> new RuntimeException("Header is missing " + X_CF_FORWARDED_URL_HEADER)); 
+  - Update Manifest Files again!
+  - Add Microservices Videos
+  - Make Github Repo Public
   - Course Promotion Emails/Posts
     - 1 Emails on Udemy
     - 1 Emails to Email List
@@ -249,164 +363,55 @@ HostOS -- CloudInfrastructure [style=invis]
   - After a Month
     - UFB and Packt
 
-## Next Steps
+## Blue Green
 
+hello-world-rest-api-ranga-101.cfapps.io - Blue - Hello World v3
+hello-world-rest-api-green hello-world-rest-api-ranga-101-green.cfapps.io 
+Green - Hello World v4
 
-## All Notes
+## Backup
 
-https://docs.cloudfoundry.org/cf-cli/
-https://docs.cloudfoundry.org/cf-cli/install-go-cli.html
+```
+rangaraokaranam$ cf apps
+Getting apps in org currency-services / space development as ranga@in28minutes.com...
+OK
 
-cf install-plugin cfdev
+name                          requested state   instances   memory   disk   urls
+currency-conversion-service   stopped           0/2         512M     1G     currency-conversion-service-ranga-101.cfapps.io
+currency-exchange-service     stopped           0/2         512M     1G     currency-exchange-service-ranga-101.cfapps.io
+hello-world-rest-api          stopped           0/1         1G       1G     hello-world-rest-api-sweet-panda.cfapps.io
+hello-world-rest-api-green    stopped           0/1         1G       1G     hello-world-rest-api-ranga-101.cfapps.io, hello-world-rest-api-ranga-101-green.cfapps.io
+rest-api-full-stack           stopped           0/1         1G       1G     rest-api-full-stack-ranga-101.cfapps.io
+spring-boot-route-service     stopped           0/1         512M     1G     spring-boot-route-service-ranga-101.cfapps.io
+todo-app-react-frontend       stopped           0/1         64M      1G     todo-app-react-frontend-ranga-101.cfapps.io
+todo-rest-api                 stopped           0/1         1G       1G     todo-rest-api-terrific-mandrill.cfapps.io
+todo-web-application-h2       stopped           0/1         1G       1G     todo-web-application-h2-ranga-101.cfapps.io
+todo-web-application-mysql    stopped           0/1         1G       1G     todo-web-application-mysql-ranga-101.cfapps.io
+rangaraokaranam$ cf routes
+Getting routes for org currency-services / space development as ranga@in28minutes.com ...
 
-cf dev start -f /Users/rangakaranam/Downloads/pcfdev-v1.2.0-darwin.tgz -s scs
+space         host                                    domain      port   path   type   apps                          service
+development   hello-world-rest-api-sweet-panda        cfapps.io                        hello-world-rest-api
+development   hello-world-rest-api-ranga-101          cfapps.io                        hello-world-rest-api-green
+development   todo-web-application-h2-ranga-101       cfapps.io                        todo-web-application-h2
+development   todo-web-application-mysql-ranga-101    cfapps.io                        todo-web-application-mysql
+development   rest-api-full-stack-ranga-101           cfapps.io                        rest-api-full-stack
+development   todo-app-react-frontend-ranga-101       cfapps.io                        todo-app-react-frontend
+development   currency-exchange-service-ranga-101     cfapps.io                        currency-exchange-service
+development   currency-conversion-service-ranga-101   cfapps.io                        currency-conversion-service
+development   spring-boot-route-service-ranga-101     cfapps.io                        spring-boot-route-service
+development   todo-rest-api-terrific-mandrill         cfapps.io                        todo-rest-api
+development   hello-world-rest-api-ranga-101-green    cfapps.io                        hello-world-rest-api-green
+rangaraokaranam$ cf services
+Getting services in org currency-services / space development as ranga@in28minutes.com...
 
-cf dev suspend
-cf dev resume
+name                        service                       plan       bound apps                                               last operation     broker                    upgrade available
+autoscale-development       app-autoscaler                standard   currency-exchange-service                                create succeeded   app-autoscaler            
+config-server               p-config-server               trial      currency-conversion-service                              create succeeded   p-spring-cloud-services   
+hystrix-dashboard           p-circuit-breaker-dashboard   trial      currency-conversion-service                              create succeeded   p-spring-cloud-services   
+naming-server               p-service-registry            trial      currency-conversion-service, currency-exchange-service   create succeeded   p-spring-cloud-services   
+spring-boot-route-service   user-provided                                                                                                                                  
+todo-database               cleardb                       spark      todo-web-application-h2, todo-web-application-mysql      create succeeded   appdirect                 
+rangaraokaranam$ 
 
-cf dev destroy
-cf dev stop
-cf dev status
-
-https://network.pivotal.io/products/pcfdev
-
-
-API endpoint: https://api.local.pcfdev.io
-Apps Manager URL: https://apps.local.pcfdev.io
-An Admin user with the Email: admin and Password: admin
-A Regular user with the Email: user and Password: pass
-An Org for apps to be named: pcfdev-org
-With a Space for deploying the apps to be named pcfdev-space
-
-cf login -a https://api.local.pcfdev.io --skip-ssl-validation 
-
-cf target -o ORG -s SPACE
-
-cf set-org-role John cf-my-first-org OrgManager
-
-cf set-space-role John cf-my-first-org development SpaceDeveloper
-
-cf marketplace
-
-
-/Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home
-
- 312  cf login
-  313  cf status
-  314  cf
-  315  cf config
-  316  cf -v
-  317* cf help
-  318  cf routes
-  319  cf apps
-  320  cf spaces
-  321  cf
-  322  cf marketplace
-  323  cf marketplace -s mysql
-  324  cf marketplace -s cleardb
-  325  cf apps
-  326   cf delete -r in28minutes-restful-web-services
-  327   cf delete -r restful-web-services
-  328  cf
-  
-  343  cf push hello-world-rest-api -p target/01-hello-world-rest-api-0.0.1-SNAPSHOT.jar
-  344  cf create-app-manifest hello-world-rest-api
-  345  cf apps
-  349  cf routes
-  350  mvn cf:push
-  354  mvn cf:login -Dcf.username=mailranga@gmail.com -Dcf.password=fjlsdfjklas@sdjfklasjd
-  360  cf push -t target/01-hello-world-rest-api-0.0.1-SNAPSHOT.jar
-  361  clear
-  365  mvn clean install -DskipTests
-  366  cf push
-
-   cf set-env help
-  320  cf set-env currency-conversion-service CURRENCY_EXCHANGE_URI https://currency-exchange-service-h2.cfapps.io
-  321  cf restage currency-conversion-service
-    318  cf env currency-conversion-service
-
-    314  mvn clean install -DskipTests -Ddockerfile.skip
-  315  cf push
-
-    317  cf scale --help
-  318  cf scale currency-exchange-service -i 2
-  319  cf scale currency-exchange-service -i 1
-
-  cf set-env currency-conversion-service CURRENCY_EXCHANGE_URI https://currency-exchange-service-h2.cfapps.io
-
-  brew install springboot
-
-    370  mvn clean install -DskipTests -Ddockerfile.skip; cf push;
-  371  cf scale currency-conversion-service 2
-  372  cf scale currency-conversion-service -i 2
-
-342  cf set-env currency-conversion-service CURRENCY_EXCHANGE_URI currency-exchange-microservice
-343  cf restage currency-exchange-service
-
-327  cf set-env currency-conversion-service CURRENCY_EXCHANGE_URI //CURRENCY-EXCHANGE-MICROSERVICE
-
-cf set-env currency-exchange-service spring.cloud.services.registrationMethod direct
-
-cf add-network-policy currency-conversion-service --destination-app currency-exchange-service
-
-cf network-policies
-
-watch -n 0.1 curl  https://currency-conversion-service-h2.cfapps.io/currency-converter/from/EUR/to/INR/quantity/10
-
-cf remove-network-policy currency-conversion-service --destination-app currency-exchange-service --protocol tcp --port 8080
-
-cf set-env currency-conversion-service hystrix.command.default.circuitBreaker.requestVolumeThreshold 2
-
-cf create-service p-config-server trial in28minutes-config-server -c create-config-server.json
-
-{  
-  "git":{  
-    "uri":"https://github.com/in28minutes/dev-config-server-test.git",
-    "label":"master",
-    "searchPaths":"currency-exchange-service"
-  }
-}
-
-{ "count":1, "git":{  "uri":"https://github.com/in28minutes/dev-config-server-test.git", "label":"master", "searchPaths":"currency-exchange-service" }}
-
-
-cf update-service config-server -c  '{ "count":1, "git":{  "uri":"https://github.com/in28minutes/dev-config-server-test.git", "label":"master", "searchPaths":"currency-exchange-service" }}'
-
-cf service config-server
-
-Refresh
-
-https://currency-conversion-service-h2.cfapps.io/manage/refresh
-
-https://community.pivotal.io/s/question/0D50P00003tGPOlSAO/is-it-possible-to-connect-rabbitmq-spring-cloud-bus-with-pcf-config-server-from-market-place-not-the-spring-cloud-config-server-as-a-application-i-want-to-have-refresh-of-config-client
-
-cf push todo-rest-api --docker-image in28min/docker-in-5-steps-todo-rest-api-h2:1.0.0.RELEASE
-
-http://todo-rest-api.cfapps.io/jpa/users/in28minutes/todos
-
-CF App Autoscaler CLI
-
-cf install-plugin ~/Downloads/autoscaler-for-pcf-cliplugin-macosx64-binary-2.0.199
-watch cf autoscaling-events todo-rest-api
-
-
-todo-rest-api
-
-spring-boot-route-service
-
-cf create-user-provided-service spring-boot-route-service -r https://spring-boot-route-service.cfapps.io/
-
-cf bind-route-service cfapps.io --hostname todo-rest-api spring-boot-route-service
-
-cf set-health-check currency-exchange-service http --endpoint /manage/health-error
-
-cf map-route hello-world-rest-api-v2 cfapps.io --hostname hello-world-rest-api
-
-cf unmap-route hello-world-rest-api cfapps.io --hostname hello-world-rest-api
-
-cf v3-droplets currency-exchange-service
-
-
-cf uups my-logging-service -l syslog-tls://logs2.papertrailapp.com:24066
-cf bind-service currency-exchange-service my-logging-service
-cf start currency-exchange-service
+```
