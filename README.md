@@ -1,5 +1,7 @@
 # PCF Crash Course for Java, Spring and Spring Boot Developers
 
+[![Image](https://www.springboottutorial.com/images/Course-pivotal-cloud-foundry-pcf-deploying-spring-boot-apps.png "Deploying Spring Boot Microservices to PCF Pivotal Cloud Foundry")](https://www.udemy.com/course/learn-pivotal-cloud-foundry-pcf-deploying-spring-boot-apps/)
+
 ## Deploy Spring Boot REST API, Full Stack Applications and Microservices to Pivotal Cloud Foundry (PCF) 
 
 Learn PCF Fundamentals? Yes.   Deploy REST API to PCF? Yes.     Deploy Full Stack to PCF? Yes. Of Course. Hands-on? Of course.
@@ -174,13 +176,6 @@ You will be using deploying a variety of projects to Pivotal Cloud Foundry (PCF)
 - 12 Step 04 - Blue Green Deployment on Pivotal Cloud Foundry
 - 12 Step 05 - Thank You
 
-
-```sh
-for file in *; do mv "${file}" "${file//-/ }"; done
-for file in *; do mv "${file}" "${file//   / - }"; done
-for file in *; do mv "${file}" "${file//01 Step/Step}"; done
-```
-
 ## Some of the commmands Executed during the course
 
 ```
@@ -276,13 +271,6 @@ cf map-route hello-world-rest-api-green cfapps.io --hostname hello-world-rest-ap
 cf unmap-route hello-world-rest-api cfapps.io --hostname hello-world-rest-api-ranga-101
 ```
 
-  
-### Useful Links
-- [Our Website](http://www.in28minutes.com)
-- [Facebook](http://facebook.com/in28minutes)
-- [Twitter](http://twitter.com/in28minutes)
-- [Google Plus](https://plus.google.com/u/3/110861829188024231119)
-
 ## Diagrams
 
 - Courtesy http://viz-js.com/
@@ -367,29 +355,6 @@ node[shape=record]
 
 ```
 
-
-## Next Steps
-
-## Todo
-
-- Course Creation
-- Post Course Creation
-  - Commit Code
-  - Explanation for Route Service in 09 - 06:25    URI uri = headers.remove(X_CF_FORWARDED_URL_HEADER).stream().findFirst().map(URI::create) .orElseThrow(() -> new RuntimeException("Header is missing " + X_CF_FORWARDED_URL_HEADER)); 
-  - Update Manifest Files again!
-  - Add Microservices Videos
-  - Make Github Repo Public
-  - Course Promotion Emails/Posts
-    - 1 Emails on Udemy
-    - 1 Emails to Email List
-  - Create YouTube Course Preview Video
-    - Add YouTube Course Preview Video as End Video for all videos
-    - Make it the YouTube Default Video
-  - Release atleast 20 small videos - one a day on Youtube
-  - Do atleast 3 Youtube live sessions
-  - After a Month
-    - UFB and Packt
-
 ## Blue Green
 
 hello-world-rest-api-ranga-101.cfapps.io - Blue - Hello World v3
@@ -442,3 +407,14 @@ todo-database               cleardb                       spark      todo-web-ap
 rangaraokaranam$ 
 
 ```
+
+### Troubleshooting
+- Refer our TroubleShooting Guide - https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ
+
+## Youtube Playlists - 500+ Videos
+
+[Click here - 30+ Playlists with 500+ Videos on Spring, Spring Boot, REST, Microservices and the Cloud](https://www.youtube.com/user/rithustutorials/playlists?view=1&sort=lad&flow=list)
+
+## Keep Learning in28Minutes
+
+in28Minutes is creating amazing solutions for you to learn Spring Boot, Full Stack and the Cloud - Docker, Kubernetes, AWS, React, Angular etc. - [Check out all our courses here](https://github.com/in28minutes/learn)
